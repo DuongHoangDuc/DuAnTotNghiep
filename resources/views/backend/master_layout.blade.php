@@ -72,11 +72,17 @@
 
   <!-- jQuery -->
   <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script>
+  {{-- ckedit --}}
+  {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script> --}}
+
 
   {{-- ckeditor --}}
-  {{-- <script type="text/javascript" src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>
   <script>
-    CKEDITOR.replace('Description');
+    CKEDITOR.replace('ckeditor_content');
+    CKEDITOR.replace('ckeditor_desc');
+    CKEDITOR.replace('ckeditor_keywords');
+    CKEDITOR.replace('ckeditor_meta');
   </script>    --}}
     
 </body>

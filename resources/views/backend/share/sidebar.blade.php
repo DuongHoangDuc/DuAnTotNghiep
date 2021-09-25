@@ -10,7 +10,7 @@
         <li class="menu-title">Dashboard</li>
 
         <li>
-          <a href="javascript: void(0);">
+          <a href="{{ URL::to('/admin/dashboard') }}">
             <i class="fal fa-tachometer-alt-fastest"></i>
             <span class="badge badge-success badge-pill float-right">2</span>
             <span> Dashboard </span>
@@ -32,10 +32,15 @@
         </li>
 
         <li>
-          <a href="">
+          <a  href="javascript: void(0);">
             <i class="fal fa-file-edit"></i>
             <span> Bài viết </span>
+            <span class="menu-arrow"></span>
           </a>
+          <ul class="nav-second-level" aria-expanded="false">
+            <li><a href="{{ URL::to ('/admin/category-post/') }}">Danh Mục Bài Viết</a></li>
+            <li><a href="{{ URL::to ('/admin/post') }}">Bài Viết </a></li>
+          </ul>
         </li>
 
         <li>
@@ -44,6 +49,7 @@
             <span> Danh mục  </span>
             {{-- <span class="menu-arrow"></span> --}}
           </a>
+          
         </li>
 
         <li>
@@ -53,9 +59,9 @@
             <span class="menu-arrow"></span>
           </a>
           <ul class="nav-second-level" aria-expanded="false">
-            <li><a href="#">Danh sách sản phẩm</a></li>
-            <li><a href="#">Thêm sản phẩm</a></li>
-            <li><a href="#">Thêm thương hiệu </a></li>
+            <li><a href="{{ URL::to ('/admin/product/') }}">Danh sách sản phẩm</a></li>
+            <li><a href="{{ URL::to ('/admin/category') }}">Loại sản phẩm</a></li>
+            <li><a href="{{ URL::to ('/admin/brand') }}">Thương hiệu sản phẩm </a></li>
           </ul>
         </li>
 
