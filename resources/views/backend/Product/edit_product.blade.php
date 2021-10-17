@@ -9,7 +9,7 @@
 
                 <div class="row">
                     <div class="col-xl-12">
-                      <form action="{{ URL::to('/admin/update-product/'.$product->product_id) }}" method="POST" id="form_category_create" enctype="multipart/form-data">
+                      <form action="{{ URL::to('/admin/product/update-product/'.$product->product_id) }}" method="POST" id="form_category_create" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

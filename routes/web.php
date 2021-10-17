@@ -1,14 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\BrandProduct;
 use App\Http\Controllers\Backend\CategoryPost;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryProduct;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,22 +29,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/layout', [HomeController::class, 'admin'])->name('admin.admin');
 
+// 
 // Login admin
 Route::get('/admin', [AdminController::class, 'getLogin'])->name('admin.getLogin');
-
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.getLogin');
 // Regis admin
 Route::get('/admin/regis', [AdminController::class, 'getRegis'])->name('admin.getRegis');
+Route::post('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 // Dashboard
-// Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.index');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.index')->middleware('check_auth');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
     // =============================== dashboard ===============================
     $prefix         = '';
     $controllerName = 'dashboard';
-    Route::group(['prefix' => $prefix], function () use($controllerName) {
-        Route::get('/admin/dashboard', [DashboardController::class, 'index'])              ->name($controllerName.'.index');
-    });
+    // Route::group(['prefix' => $prefix], function () use($controllerName) {
+    //     Route::get('/admin/dashboard', [DashboardController::class, 'index'])              ->name($controllerName.'.index');
+    // });
     //=============================== slider ===============================
     $prefix         = 'slider';
     $controllerName = 'slider';
@@ -54,47 +62,99 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
         Route::get('/{id}', [SliderController::class, 'show'])             ->name($controllerName.'.show')->whereNumber('id');
         Route::get('/{id}/edit', [SliderController::class, 'edit'])        ->name($controllerName.'.edit')->whereNumber('id');
     });
+
+    // ===============================Category Product =====================================
+    Route::prefix('category-product')->group(function () {
+        Route::get('/',[CategoryProduct::class,'index'])->name('category.index')->middleware(['can:category-product-list', 'check_auth']); 
+        Route::get('/create-category-product',[CategoryProduct::class, 'create'])->name('category.create')->middleware(['can:category-product-add', 'check_auth']);
+        Route::get('/destroy-category-product/{id}', [CategoryProduct::class, 'destroy'])->name('category.destroy')->middleware('can:category-product-delete');
+        Route::get('/edit-category-product/{id}', [CategoryProduct::class, 'edit'])->name('category.edit')->middleware('can:category-product-edit');
+        Route::post('/store-category-product', [CategoryProduct::class, 'store'])->name('category.store');
+        Route::post('/update-category-product/{id}', [CategoryProduct::class, 'update'])->name('category.update');
+        Route::get('/active-category-product/{id}', [CategoryProduct::class, 'active'])->name('category.active');
+        Route::get('/unactive-category-product/{id}', [CategoryProduct::class, 'unactive'])->name('category.unactive');
+           
+    });
+    // ===============================brand Product =====================================
+    route::prefix('brand')->group(function(){
+        Route::get('/',[BrandProduct::class,'index'])->name('brand.index')->middleware('can:brand-list'); 
+        Route::get('create-brand',[BrandProduct::class, 'create'])->name('brand.create')->middleware('can:brand-add');
+        Route::get('/destroy-brand/{id}', [BrandProduct::class, 'destroy'])->name('brand.destroy')->middleware('can:brand-delete');
+        Route::get('/edit-brand/{id}', [BrandProduct::class, 'edit'])->name('brand.edit')->middleware('can:brand-edit');
+        Route::post('/store-brand', [BrandProduct::class, 'store'])->name('brand.store');
+        Route::post('/update-brand/{id}', [BrandProduct::class, 'update'])->name('brand.update');
+
+    });
+    // ===============================brand Product =====================================
+    // ===================================Product =====================================
+    route::prefix('product')->group(function(){
+        Route::get('/',[ProductController::class,'index'])->name('product.index')->middleware('can:product-list'); 
+        Route::get('create-product',[ProductController::class, 'create'])->name('product.create')->middleware('can:product-add');
+        Route::get('/destroy-product/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('can:product-delete');
+        Route::get('/edit-product/{id}', [ProductController::class, 'edit'])->name('product.edit')->middleware('can:product-edit');
+        Route::post('/store-product', [ProductController::class, 'store'])->name('product.store');
+        Route::post('/update-product/{id}', [ProductController::class, 'update'])->name('product.update');
+
+    });
+    // =================================== Product =====================================
+    // =================================== POST =====================================
+    route::prefix('post')->group(function(){
+        Route::get('/',[PostController::class,'index'])->name('product.index')->middleware('can:post-list'); 
+        Route::get('create-post',[PostController::class, 'create'])->name('post.create')->middleware('can:post-add');
+        Route::get('/destroy-post/{id}', [PostController::class, 'destroy'])->name('post.destroy')->middleware('can:post-delete');
+        Route::get('/edit-post/{id}', [PostController::class, 'edit'])->name('post.edit')->middleware('can:post-edit');
+        Route::post('/store-post', [PostController::class, 'store'])->name('post.store');
+        Route::post('/update-post/{id}', [PostController::class, 'update'])->name('post.update');
+
+    });
+    // =================================== POST =====================================
+    // =================================== category POST =====================================
+    route::prefix('category-post')->group(function(){
+        Route::get('/',[CategoryPost::class,'index'])->name('category.index')->middleware('can:category-post-list'); 
+        Route::get('create-category-post',[CategoryPost::class, 'create'])->name('category.create')->middleware('can:category-post-add');
+        Route::get('/destroy-category-post/{id}', [CategoryPost::class, 'destroy'])->name('category.destroy')->middleware('can:category-post-delete');
+        Route::get('/edit-category-post/{id}', [CategoryPost::class, 'edit'])->name('category.edit')->middleware('can:category-post-edit');
+        Route::post('/store-category-post', [CategoryPost::class, 'store'])->name('category.store');
+        Route::post('/update-category-post/{id}', [CategoryPost::class, 'update'])->name('category.update');
+
+    });
+    // =================================== category POST =====================================
+    // =============================== Role Admin =====================================
+    route::prefix('roles')->group(function(){
+        Route::get('/',[RoleController::class,'index'])->name('roles.index')->middleware('can:roles-list'); 
+        Route::get('add-roles',[RoleController::class, 'create'])->name('roles.create')->middleware('can:roles-add');
+        Route::get('/delete-roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy')->middleware('can:roles-delete');
+        Route::get('/edit-roles/{id}', [RoleController::class, 'edit'])->name('roles.edit')->middleware('can:roles-edit');
+        Route::post('/store-roles', [RoleController::class, 'store'])->name('roles.store');
+        Route::post('/update-roles/{id}', [RoleController::class, 'update'])->name('roles.update');
+
+    });
+    // =============================== Role Admin =====================================
+    // =============================== user Admin =====================================
+    route::prefix('user')->group(function(){
+        Route::get('/',[UserController::class,'index'])->name('user.index')->middleware('can:user-list'); 
+        Route::get('add-user',[UserController::class, 'create'])->name('user.create')->middleware('can:user-add');
+        Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('can:user-delete');
+        Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('user.edit')->middleware('can:user-edit');
+        Route::post('/store-user', [UserController::class, 'store'])->name('user.store');
+        Route::post('/update-user/{id}', [UserController::class, 'update'])->name('user.update');
+
+    });
+    // =============================== user Admin =====================================
+     // =============================== user Admin =====================================
+     route::prefix('permission')->group(function(){ 
+        Route::get('/create-permission',[PermissionController::class, 'create'])->name('user.create')->middleware('can:permission-list');
+        Route::post('/store-permission', [PermissionController::class, 'store'])->name('user.store')->middleware('can:permission-add');
+    });
+    // =============================== user Admin =====================================
+
 });
 
-// ===============================Category Product =====================================
-Route::get('/admin/category', [CategoryProduct::class, 'index'])->name('admin.index');
-Route::get('/admin/create-category', [CategoryProduct::class, 'create'])->name('admin.create');
-Route::get('/admin/destroy-category/{id}', [CategoryProduct::class, 'destroy'])->name('admin.destroy');
-Route::get('/admin/edit-category/{id}', [CategoryProduct::class, 'edit'])->name('admin.edit');
-Route::post('/admin/store-category', [CategoryProduct::class, 'store'])->name('admin.store');
-Route::post('/admin/update-category/{id}', [CategoryProduct::class, 'update'])->name('admin.update');
-Route::get('/admin/active-category/{id}', [CategoryProduct::class, 'active'])->name('admin.active');
-Route::get('/admin/unactive-category/{id}', [CategoryProduct::class, 'unactive'])->name('admin.unactive');
-// ===============================Category Product =====================================
-// ==================================Brand Product =====================================
-Route::get('/admin/brand', [BrandProduct::class, 'index'])->name('admin.index');
-Route::get('/admin/create-brand', [BrandProduct::class,'create'])->name('admin.create');
-Route::get('/admin/destroy-brand/{id}', [BrandProduct::class, 'destroy'])->name('admin.destroy');
-Route::get('/admin/edit-brand/{id}', [BrandProduct::class, 'edit'])->name('admin.edit');
-Route::post('/admin/store-brand', [BrandProduct::class, 'store'])->name('admin.store');
-Route::post('/admin/update-brand/{id}', [BrandProduct::class, 'update'])->name('admin.update');
-// ==================================Brand Product =====================================
-// ==================================Product =====================================
-Route::get('/admin/product', [ProductController::class, 'index'])->name('admin.index');
-Route::get('/admin/create-product', [ProductController::class,'create'])->name('admin.create');
-Route::get('/admin/destroy-product/{id}', [ProductController::class, 'destroy'])->name('admin.destroy');
-Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit'])->name('admin.edit');
-Route::post('/admin/store-product', [ProductController::class, 'store'])->name('admin.store');
-Route::post('/admin/update-product/{id}', [ProductController::class, 'update'])->name('admin.update');
-// ==================================Product =====================================
-// ==================================CATEGORY POST =====================================
-Route::get('/admin/category-post', [CategoryPost::class, 'index'])->name('admin.index');
-Route::get('/admin/create-category-post', [CategoryPost::class,'create'])->name('admin.create');
-Route::get('/admin/destroy-category-post/{id}', [CategoryPost::class, 'destroy'])->name('admin.destroy');
-Route::get('/admin/edit-category-post/{id}', [CategoryPost::class, 'edit'])->name('admin.edit');
-Route::post('/admin/store-category-post', [CategoryPost::class, 'store'])->name('admin.store');
-Route::post('/admin/update-category-post/{id}', [CategoryPost::class, 'update'])->name('admin.update');
-// ==================================CATEGORY POST =====================================
-// ==================================POST =====================================
-Route::get('/admin/post', [PostController::class, 'index'])->name('admin.index');
-Route::get('/admin/create-post', [PostController::class,'create'])->name('admin.create');
-Route::get('/admin/destroy-post/{id}', [PostController::class, 'destroy'])->name('admin.destroy');
-Route::get('/admin/edit-post/{id}', [PostController::class, 'edit'])->name('admin.edit');
-Route::post('/admin/store-post', [PostController::class, 'store'])->name('admin.store');
-Route::post('/admin/update-post/{id}', [PostController::class, 'update'])->name('admin.update');
-// ================================== POST =====================================
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

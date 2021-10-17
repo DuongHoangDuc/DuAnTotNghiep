@@ -8,7 +8,9 @@
                 <div class="col-12">
                     <div class="card-box">
                         <div class="mb-3">
-                            <a href="{{ URL::to('/admin/create-category-post') }}" class="btn btn-primary">Thêm danh mục bài viết</a>
+                        @can('category-post-add')
+                            <a href="{{ URL::to('/admin/category-post/create-category-post') }}" class="btn btn-primary">Thêm danh mục bài viết</a>
+                        @endcan
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -77,17 +79,20 @@
                                                     {{-- ================active========================= --}}
                                                     <td>
                                                         {{-- <button class="btn btn-success"><i class="fa fa-edit"></i>Chỉnh sửa</button> --}}
-
+                                                        @can('category-post-edit')
                                                         <a class="btn btn-success"
                                                             onclick="return confirm('bạn có muốn Sửa danh mục này')"
-                                                            href="{{ URL::to('/admin/edit-category-post/' . $cate->category_post_id) }}">
+                                                            href="{{ URL::to('/admin/category-post/edit-category-post/' . $cate->category_post_id) }}">
                                                             <i class="fa fa-edit">
                                                             </i> Chỉnh Sửa</a>
+                                                        @endcan
+                                                        @can('category-post-delete')
                                                         <a class="btn btn-danger"
                                                             onclick="return confirm('bạn có muốn xóa danh mục này')"
-                                                            href="{{ URL::to('/admin/destroy-category-post/' . $cate->category_post_id) }}">
+                                                            href="{{ URL::to('/admin/category-post/destroy-category-post/' . $cate->category_post_id) }}">
                                                             <i class="fa fa-trash">
                                                             </i> Xóa</a>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                             </tbody>

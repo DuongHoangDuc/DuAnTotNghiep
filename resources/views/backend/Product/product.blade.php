@@ -8,7 +8,9 @@
                 <div class="col-12">
                     <div class="card-box">
                         <div class="mb-3">
-                            <a href="{{ URL::to('/admin/create-product') }}" class="btn btn-primary">Thêm Sản Phẩm</a>
+                        @can('product-add')
+                            <a href="{{ URL::to('/admin/product/create-product') }}" class="btn btn-primary">Thêm Sản Phẩm</a>
+                        @endcan
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -88,17 +90,20 @@
                                                     {{-- ================active========================= --}}
                                                     <td>
                                                         {{-- <button class="btn btn-success"><i class="fa fa-edit"></i>Chỉnh sửa</button> --}}
-
+                                                        @can('product-edit')
                                                         <a class="btn btn-success"
                                                             onclick="return confirm('bạn có muốn Sửa danh mục này')"
-                                                            href="{{ URL::to('/admin/edit-product/' . $pro->product_id) }}">
+                                                            href="{{ URL::to('/admin/product/edit-product/' . $pro->product_id) }}">
                                                             <i class="fa fa-edit">
                                                             </i> Chỉnh Sửa</a>
+                                                        @endcan
+                                                        @can('product-delete')
                                                         <a class="btn btn-danger"
                                                             onclick="return confirm('bạn có muốn xóa danh mục này')"
-                                                            href="{{ URL::to('/admin/destroy-product/' . $pro->product_id) }}">
+                                                            href="{{ URL::to('/admin/product/destroy-product/' . $pro->product_id) }}">
                                                             <i class="fa fa-trash">
                                                             </i> Xóa</a>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                             </tbody>

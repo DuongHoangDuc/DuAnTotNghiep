@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('fonts/fontawesome-pro-5.14.0-web/css/all.min.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/select2.min.css') }}">
 </head>
 <body>
   <!-- Begin page -->
@@ -74,7 +75,12 @@
   <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script>
   {{-- ckedit --}}
   {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script> --}}
-
+<script src="{{ asset('dist/js/select2.min.js') }}"></script>
+  <script>
+  $('.select2_init').select2({
+    'placeholder':'Chọn Vai Trò'
+  })
+  </script>
 
   {{-- ckeditor --}}
   <script type="text/javascript" src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>

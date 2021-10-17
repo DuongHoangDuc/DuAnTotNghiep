@@ -8,7 +8,9 @@
                 <div class="col-12">
                     <div class="card-box">
                         <div class="mb-3">
-                            <a href="{{ URL::to('/admin/create-brand') }}" class="btn btn-primary">Thêm Thương Hiệu</a>
+                        @can('brand-add')
+                            <a href="{{ URL::to('/admin/brand/create-brand') }}" class="btn btn-primary">Thêm Thương Hiệu</a>
+                        @endcan
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -63,17 +65,20 @@
                                                      <td>{{ $bra->brand_slug }}</td>
                                                     <td>
                                                         {{-- <button class="btn btn-success"><i class="fa fa-edit"></i>Chỉnh sửa</button> --}}
-
+                                                        @can('brand-edit')
                                                         <a class="btn btn-success"
                                                             onclick="return confirm('bạn có muốn Sửa danh mục này')"
-                                                            href="{{ URL::to('/admin/edit-brand/'. $bra->brand_id) }}">
+                                                            href="{{ URL::to('/admin/brand/edit-brand/'. $bra->brand_id) }}">
                                                             <i class="fa fa-edit">
                                                             </i> Chỉnh Sửa</a>
+                                                        @endcan
+                                                        @can('brand-delete')
                                                         <a class="btn btn-danger"
                                                             onclick="return confirm('bạn có muốn xóa danh mục này')"
-                                                            href="{{ URL::to('/admin/destroy-brand/'. $bra->brand_id) }}">
+                                                            href="{{ URL::to('/admin/brand/destroy-brand/'. $bra->brand_id) }}">
                                                             <i class="fa fa-trash">
                                                             </i> Xóa</a>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                             </tbody>

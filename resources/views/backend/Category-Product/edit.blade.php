@@ -8,7 +8,7 @@
             <h4 class="header-title mb-4">Cập Nhập Loại</h4>
             <div class="row">
                 <div class="col-xl-12">
-                    <form action="{{ URL::to('/admin/update-category/'.$category->category_id) }}" method="POST" id="form_category_create"
+                    <form action="{{ URL::to('/admin/category-product/update-category-product/'.$category->category_id) }}" method="POST" id="form_category_create"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">

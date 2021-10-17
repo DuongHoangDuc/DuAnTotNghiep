@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\ProductCategory;
+use Illuminate\Support\Facades\Auth;
 use  App\Http\Requests\CategoryProduct\ValidateCreate;
 use  App\Http\Requests\CategoryProduct\ValidateUpdate   ;
 class CategoryProduct extends Controller
@@ -14,8 +15,17 @@ class CategoryProduct extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function AuthLogin(){
+        $Auth = Auth::id();
+        if($Auth){
+            return redirect()->to('/admin/dashboard');
+        }else{
+            return redirect()->to('/admin');
+        }
+    }
     public function index()
     {
+        $this->Authlogin();
         $category =  ProductCategory::all();
         $manager_category = view('backend.Category-Product.category')->with('category',$category);
         return view('backend.master_layout')->with('backend.Category-Product.category',$manager_category);
@@ -57,7 +67,7 @@ class CategoryProduct extends Controller
         }
         $category->save();
         session()->put('message', 'Thêm Thành Công');
-        return Redirect('/admin/category');
+        return Redirect('/admin/category-product');
     }
 
     /**
@@ -114,7 +124,7 @@ class CategoryProduct extends Controller
         }
         $category->update();
         Session()->put('message','Cập Nhập Danh Mục Thành Công');
-        return Redirect('/admin/category');
+        return Redirect('/admin/category-product');
     }
 
     /**
@@ -134,7 +144,7 @@ class CategoryProduct extends Controller
 
         $category->delete();
         Session()->put('message','Xóa Danh Mục Sản Phẩm Thành Công');
-        return Redirect('/admin/category');
+        return Redirect('/admin/category-product');
     }
 
     public function active(Request $request,$id ){
@@ -143,7 +153,7 @@ class CategoryProduct extends Controller
 
         $category->category_status = '1';
         $category->update();
-        return Redirect('/admin/category');
+        return Redirect('/admin/category-product');
     }
     public function unactive(Request $request,$id ){
         $data = $request->all();
@@ -151,6 +161,6 @@ class CategoryProduct extends Controller
 
         $category->category_status = '0';
         $category->update();
-        return Redirect('/admin/category');
+        return Redirect('/admin/category-product');
     }
 }

@@ -9,7 +9,7 @@
 
                 <div class="row">
                     <div class="col-xl-12">
-                        <form id="form_category_create" action="{{ URL::to('/admin/update-category-post/'.$category->category_post_id) }}"
+                        <form id="form_category_create" action="{{ URL::to('/admin/category-post/update-category-post/'.$category->category_post_id) }}"
                             method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -45,7 +45,7 @@
                                     <div class="mb-3">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+                                                <button type="submit" class="btn btn-primary">Cập Nhập Danh mục</button>
                                             </div>
                                         </div>
                                     </div>

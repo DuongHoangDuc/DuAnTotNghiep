@@ -9,7 +9,7 @@
 
                 <div class="row">
                     <div class="col-xl-12">
-                       <form action="{{ URL::to('/admin/store-product') }}" method="POST" id="form_category_create"
+                       <form action="{{ URL::to('/admin/product/store-product') }}" method="POST" id="form_category_create"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -105,7 +105,7 @@
                                         <span class="erorr text-danger" > {{ $message }} </span>
                                 @enderror
                             </div>
-                              <div class="col-md-12">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class=" title_product ">Mô tả ngắn</label>
                                     <textarea name="product_desc" class="form-control" id="ckeditor_desc" cols="0"
