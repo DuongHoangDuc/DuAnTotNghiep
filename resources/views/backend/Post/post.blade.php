@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <div class="card-box">
                         <div class="mb-3">
-                            <a href="{{ URL::to('/admin/create-post') }}" class="btn btn-primary">Thêm Sản Phẩm</a>
+                            <a href="{{ URL::to('/admin/post/create-post') }}" class="btn btn-primary">Thêm Bài viết</a>
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -91,12 +91,12 @@
 
                                                         <a class="btn btn-success"
                                                             onclick="return confirm('bạn có muốn Sửa danh mục này')"
-                                                            href="{{ URL::to('/admin/edit-post/' . $po->post_id) }}">
+                                                            href="{{ URL::to('/admin/post/edit-post/' . $po->post_id) }}">
                                                             <i class="fa fa-edit">
                                                             </i> Chỉnh Sửa</a>
                                                         <a class="btn btn-danger"
                                                             onclick="return confirm('bạn có muốn xóa danh mục này')"
-                                                            href="{{ URL::to('/admin/destroy-post/' . $po->post_id) }}">
+                                                            href="{{ URL::to('/admin/post/destroy-post/' . $po->post_id) }}">
                                                             <i class="fa fa-trash">
                                                             </i> Xóa</a>
                                                     </td>

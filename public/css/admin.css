@@ -133,3 +133,21 @@ li.img-box img {
   background: white;
   color: black;
 }
+
+.select2-selection__choice__display{
+  background-color: #0c525d !important;
+}
+.card-header{
+  background-color: #4b6584;
+  color:white;
+}
+.card-title{
+ font-size: 14px;
+}
+input[type="checkbox"]{
+  transform: scale(1.2);
+}
+.font{
+  font-size: 18px;
+  color: black;
+}

@@ -35,33 +35,33 @@
                 </div>
               
                 <div class="account-content mt-4">
-                  <form class="form-horizontal" action="#">
-
+                  <form class="form-horizontal" action="{{ URL::to('/admin/register') }}" method = "post">
+                    @csrf
 										<div class="form-group row">
 												<div class="col-12">
 													<label for="username">Tên đăng nhập</label>
-													<input class="form-control" type="email" id="username" required="" placeholder="Tên đăng nhập">
+													<input class="form-control" name = "name" type="text" id="username" required="" placeholder="Tên đăng nhập">
 												</div>
 											</div>
 
 										<div class="form-group row">
 											<div class="col-12">
-												<label for="emailaddress">Email</label>
-												<input class="form-control" type="email" id="emailaddress" required="" placeholder="abc@gmail.com">
+												<label for="emailaddress">Email</label> 
+												<input class="form-control" type="email" id="emailaddress" name = "email" required="" placeholder="abc@gmail.com">
 											</div>
 										</div>
 
 										<div class="form-group row">
 											<div class="col-12">
 												<label for="password">Mật khẩu</label>
-												<input class="form-control" type="password" required="" id="password" placeholder="Nhập mật khẩu ">
+												<input class="form-control" type="password" name="password" required="" id="password" placeholder="Nhập mật khẩu ">
 											</div>
 										</div>
 
                     <div class="form-group row">
 											<div class="col-12">
 												<label for="confirm-password">Xác nhận mật khẩu</label>
-												<input class="form-control" type="password" required="" id="confirm password" name="confirm_password" placeholder="Xác nhận mật khẩu">
+												<input class="form-control" type="password" required="" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu">
 											</div>
 										</div>
 

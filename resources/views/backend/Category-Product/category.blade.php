@@ -8,7 +8,9 @@
                 <div class="col-12">
                     <div class="card-box">
                         <div class="mb-3">
-                            <a href="{{ URL::to('/admin/create-category') }}" class="btn btn-primary">Thêm Loại</a>
+                        @can('category-product-add')
+                            <a href="{{ URL::to('/admin/category-product/create-category-product') }}" class="btn btn-primary">Thêm Loại</a>
+                        @endcan
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
@@ -73,28 +75,33 @@
                                                         <?php if($cate->category_status == 0){ ?>
                                                         <a class=" btn btn-light "
                                                             onclick="return confirm('bạn có muốn kích hoạt Danh mục')"
-                                                            href="{{ URL::to('/admin/active-category/' . $cate->category_id) }}">none</a>
+                                                            href="{{ URL::to('/admin/category-product/active-category-product/' . $cate->category_id) }}">none</a>
                                                         <?php }elseif($cate->category_status == 1){ ?>
                                                         <a class=" btn btn-success "
                                                             onclick="return confirm('bạn có muốn kích hoạt Danh mục')"
-                                                            href="{{ URL::to('/admin/unactive-category/' . $cate->category_id) }}">kích
+                                                            href="{{ URL::to('/admin/category-product/unactive-category-product/' . $cate->category_id) }}">kích
                                                             hoạt</a>
                                                         <?php } ?>
                                                     </td>
                                                     {{-- ================active========================= --}}
                                                     <td>
                                                         {{-- <button class="btn btn-success"><i class="fa fa-edit"></i>Chỉnh sửa</button> --}}
-
+                                                        @can('category-product-edit')
                                                         <a class="btn btn-success"
                                                             onclick="return confirm('bạn có muốn Sửa danh mục này')"
-                                                            href="{{ URL::to('/admin/edit-category/' . $cate->category_id) }}">
+                                                            href="{{ URL::to('/admin/category-product/edit-category-product/' . $cate->category_id) }}">
                                                             <i class="fa fa-edit">
                                                             </i> Chỉnh Sửa</a>
+                                                        @endcan
+                                                        @can('category-product-delete')
                                                         <a class="btn btn-danger"
                                                             onclick="return confirm('bạn có muốn xóa danh mục này')"
-                                                            href="{{ URL::to('/admin/destroy-category/' . $cate->category_id) }}">
+                                                            href="{{ URL::to('/admin/category-product/destroy-category-product/' . $cate->category_id) }}">
                                                             <i class="fa fa-trash">
-                                                            </i> Xóa</a>
+                                                            </i> Xóa
+                                                        </a>
+                                                        @endcan
+
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -39,11 +39,15 @@
                     </div>
                   <?php endif ?>
                 <div class="account-content mt-4">
-                  <form class="form-horizontal" action="#" method="post" accept-charset="utf-8" autocomplete="off">
+                  <form class="form-horizontal" action="{{ URL::to('/admin/login') }}" method ="post" accept-charset="utf-8" autocomplete="off">
+                  @csrf
                     <div class="form-group row">
                       <div class="col-12">
                         <label for="username">Tên đăng nhập</label>
-                        <input class="form-control" type="text" id="username" name="username" nrequired="" placeholder="Tên đăng nhập" autocomplete="off">
+                        <input class="form-control" type="email" id="username" required="" name="email" nrequired="" placeholder="Tên đăng nhập" autocomplete="off">
+                        @error('email')
+                          <span class="erorr text-danger"> {{ $message }} </span>
+                        @enderror
                       </div>
                     </div>
                     <div class="form-group row">
@@ -51,12 +55,15 @@
                         <a href="page-recoverpw.html" class="text-muted float-right"><small>Quên mật khẩu?</small></a>
                         <label for="password">Mật khẩu</label>
                         <input class="form-control" type="password" required="" id="password" name="password" placeholder="Mật khẩu của bạn" autocomplete="off">
+                        @error('password')
+                          <span class="erorr text-danger"> {{ $message }} </span>
+                        @enderror
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-12">
                         <div class="checkbox checkbox-primary">
-                          <input id="remember" type="checkbox" checked="">
+                          <input id="remember" name = 'remember' type="checkbox" checked="">
                           <label for="remember">
                              Ghi nhớ đăng nhập
                           </label>

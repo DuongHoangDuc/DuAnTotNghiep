@@ -5,11 +5,11 @@
         <div class="col-12">
             <div class="card-box">
 
-                <h4 class="header-title mb-4">Cập Nhập Danh mục</h4>
+                <h4 class="header-title mb-4">Thêm Danh Mục Bài viết</h4>
 
                 <div class="row">
                     <div class="col-xl-12">
-                        <form id="form_category_create" action="{{ URL::to('/admin/store-category-post') }}"
+                        <form id="form_category_create" action="{{ URL::to('/admin/category-post/store-category-post') }}"
                             method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">

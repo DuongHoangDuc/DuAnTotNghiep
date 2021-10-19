@@ -133,9 +133,11 @@
       <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
         role="button" aria-haspopup="false" aria-expanded="false">
         <img src="{{ asset('images/users/avatar-1.jpg') }}" alt="user-image" class="rounded-circle">
+
         <span class="pro-user-name ml-1">
-          Tiennd0502 <i class="far fa-angle-down"></i>
+        {{ Auth::check() ? Auth::user()->name : '' }} <i class="far fa-angle-down"></i>
         </span>
+        
       </a>
       <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
         <!-- item-->
@@ -163,7 +165,7 @@
         <div class="dropdown-divider"></div>
 
         <!-- item-->
-        <a href="Admin" class="dropdown-item notify-item" id="logout">
+        <a href="{{ URL::to('/admin/logout') }}" class="dropdown-item notify-item" id="logout">
           <i class="fal fa-sign-out-alt"></i>
           <span>Đăng xuất</span>
         </a>
