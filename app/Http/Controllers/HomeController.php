@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // dd(123);
+        return view('frontend.home');
     }
     public function admin()
     {

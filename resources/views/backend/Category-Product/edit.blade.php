@@ -40,7 +40,7 @@
                                             onchange="readURL(this);" id="images" multiple="multiple">
                                         <label class="custom-file-label" for="images">Choose image</label>
                                     </div>
-                                    <img width = "70px" src="{{ asset ('uploads/category/'.$category->category_images) }}"> 
+                                    <img width = "70px" src="{{ asset ('Backend/uploads/category/'.$category->category_images) }}"> 
                                 </div>
                             </div>
                             <div class="col-md-12">

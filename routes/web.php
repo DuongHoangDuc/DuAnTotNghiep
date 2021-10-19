@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\Client\HomeController;
+// use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Backend\BrandProduct;
 use App\Http\Controllers\Backend\CategoryPost;
 use App\Http\Controllers\Backend\PostController;
@@ -25,13 +27,7 @@ use App\Http\Controllers\Backend\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Route::get('/layout', [HomeController::class, 'admin'])->name('admin.admin');
-
-// 
 // Login admin
 Route::get('/admin', [AdminController::class, 'getLogin'])->name('admin.getLogin');
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
@@ -65,7 +61,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
 
     // ===============================Category Product =====================================
     Route::prefix('category-product')->group(function () {
-        Route::get('/',[CategoryProduct::class,'index'])->name('category.index')->middleware(['can:category-product-list', 'check_auth']); 
+        Route::get('/',[CategoryProduct::class,'index'])->name('category.index')->middleware(['can:category-product-list', 'check_auth']); // da cai do phan quyen e lam a
         Route::get('/create-category-product',[CategoryProduct::class, 'create'])->name('category.create')->middleware(['can:category-product-add', 'check_auth']);
         Route::get('/destroy-category-product/{id}', [CategoryProduct::class, 'destroy'])->name('category.destroy')->middleware('can:category-product-delete');
         Route::get('/edit-category-product/{id}', [CategoryProduct::class, 'edit'])->name('category.edit')->middleware('can:category-product-edit');
@@ -151,10 +147,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
 });
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function() {
+return view('frontend.index');
+});
+
+

@@ -27,8 +27,8 @@ class CategoryProduct extends Controller
     {
         $this->Authlogin();
         $category =  ProductCategory::all();
-        $manager_category = view('backend.Category-Product.category')->with('category',$category);
-        return view('backend.master_layout')->with('backend.Category-Product.category',$manager_category);
+        $manager_category = view('backend.Category-Product.index')->with('category',$category);
+        return view('backend.master_layout')->with('backend.Category-Product.index',$manager_category);
         
     }
 
@@ -62,7 +62,7 @@ class CategoryProduct extends Controller
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/category',$new_image);
+            $get_images->move('Backend/uploads/category',$new_image);
             $category->category_images = $new_image;
         }
         $category->save();
@@ -78,7 +78,7 @@ class CategoryProduct extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -112,13 +112,13 @@ class CategoryProduct extends Controller
         if($request->has('category_images')){
             // xoa anh cu
             $category_images_old = $category->category_images;
-            $path = 'uploads/category/'.$category_images_old; 
+            $path = 'Backend/uploads/category/'.$category_images_old; 
             unlink($path);
             // cap nhap anh mới
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/category/',$new_image);
+            $get_images->move('Backend/uploads/category/',$new_image);
             $category->category_images = $new_image;
            
         }
@@ -137,7 +137,7 @@ class CategoryProduct extends Controller
     {
         $category = ProductCategory::find($id);
         $category_images = $category->category_images;
-        $path = 'uploads/category/'.$category_images;
+        $path = 'Backend/uploads/category/'.$category_images;
         if( $category_images  ){
             unlink($path);
         }

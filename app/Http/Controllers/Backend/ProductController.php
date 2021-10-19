@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all();
-        return view('Backend.Product.product')->with(compact('product'));
+        return view('Backend.Product.index')->with(compact('product'));
         
     }
 
@@ -62,7 +62,7 @@ class ProductController extends Controller
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/products',$new_image);
+            $get_images->move('Backend/uploads/products',$new_image);
             $product->product_images = $new_image;
         }
             $product->save();
@@ -123,13 +123,13 @@ class ProductController extends Controller
         if($get_images){
             // xoa anh cu
             $product_images_old = $product->product_images;
-            $path = 'uploads/products/'.$product_images_old; 
+            $path = 'Backend/uploads/products/'.$product_images_old; 
             unlink($path);
             // cap nhap anh mới
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/products/',$new_image);
+            $get_images->move('Backend/uploads/products/',$new_image);
             $product->product_images = $new_image;
            
         }

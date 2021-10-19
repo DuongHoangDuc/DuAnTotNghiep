@@ -68,7 +68,7 @@
                                                     <td>{{ $cate->category_name }}</td>
 
                                                     <td> <img width="70px"
-                                                            src="{{ asset('uploads/category/' . $cate->category_images) }}">
+                                                            src="{{ asset('Backend/uploads/category/' . $cate->category_images) }}">
                                                     </td>
                                                     {{-- ================active========================= --}}
                                                     <td class="text">

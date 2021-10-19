@@ -20,7 +20,7 @@ class PostController extends Controller
 
         // $post = Post::orderby('post_id')->paginate(10);
         $post = DB::table('tbl_post')->join('tbl_category_post','tbl_category_post.category_post_id','=','tbl_post.category_post_id')->get();
-        return view('Backend.Post.post')->with(compact('post'));
+        return view('Backend.Post.index')->with(compact('post'));
     }
 
     /**
@@ -58,7 +58,7 @@ class PostController extends Controller
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/posts',$new_image);
+            $get_images->move('Backend/uploads/posts',$new_image);
             $post->post_images = $new_image;
         }
         
@@ -117,13 +117,13 @@ class PostController extends Controller
         if($get_images){
             // xoa anh cu
             $post_images_old = $post->post_images;
-            $path = 'uploads/posts/'.$post_images_old; 
+            $path = 'Backend/uploads/posts/'.$post_images_old; 
             unlink($path);
             // cap nhap anh mới
             $get_name_images = $get_images->getClientOriginalName();// lấy tên ảnh
             $name_image      = current(explode('.',$get_name_images));
             $new_image       = $name_image.rand(0,99).'.'.$get_images->getClientOriginalExtension();
-            $get_images->move('uploads/posts/',$new_image);
+            $get_images->move('Backend/uploads/posts/',$new_image);
             $post->post_images = $new_image;
            
         }

@@ -88,7 +88,7 @@
                                             onchange="readURL(this);" id="images" multiple="multiple">
                                         <label class="custom-file-label" for="images">Choose image</label>
                                     </div>
-                                     <img width = "70px" src="{{ asset ('uploads/products/'.$product->product_images) }}"> 
+                                     <img width = "70px" src="{{ asset ('Backend/uploads/products/'.$product->product_images) }}"> 
                                 </div>
                                 @error('product_images')
                                         <span class="erorr text-danger" > {{ $message }} </span>

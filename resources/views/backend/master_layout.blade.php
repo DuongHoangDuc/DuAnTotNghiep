@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NOOB Shop | @yield('title')</title>
   <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/icons.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('fonts/fontawesome-pro-5.14.0-web/css/all.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/app.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/icons.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('Backend/fonts/fontawesome-pro-5.14.0-web/css/all.min.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/select2.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/admin.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('Backend/dist/css/select2.min.css') }}">
 </head>
 <body>
   <!-- Begin page -->
@@ -57,25 +57,25 @@
   </a>
 
   <!-- Vendor js -->
-  <script src="{{ asset('js/vendor.min.js') }}"></script>
+  <script src="{{ asset('Backend/js/vendor.min.js') }}"></script>
 
   <!--C3 Chart-->
-  <script src="{{ asset('libs/d3/d3.min.js') }}"></script>
-  <script src="{{ asset('libs/c3/c3.min.js') }}"></script>
+  <script src="{{ asset('Backend/libs/d3/d3.min.js') }}"></script>
+  <script src="{{ asset('Backend/libs/c3/c3.min.js') }}"></script>
 
-  <script src="{{ asset('libs/echarts/echarts.min.js') }}"></script>
+  <script src="{{ asset('Backend/libs/echarts/echarts.min.js') }}"></script>
 
-  <script src="{{ asset('js/pages/dashboard.init.js') }}"></script>
+  <script src="{{ asset('Backend/js/pages/dashboard.init.js') }}"></script>
 
   <!-- App js -->
-  <script src="{{ asset('js/app.min.js') }}"></script>
-  <script src="{{ asset('js/admin.js') }}"></script>
+  <script src="{{ asset('Backend/js/app.min.js') }}"></script>
+  <script src="{{ asset('Backend/js/admin.js') }}"></script>
 
   <!-- jQuery -->
-  <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('Backend/js/jquery-3.5.0.min.js') }}"></script>
   {{-- ckedit --}}
   {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script> --}}
-<script src="{{ asset('dist/js/select2.min.js') }}"></script>
+<script src="{{ asset('Backend/dist/js/select2.min.js') }}"></script>
   <script>
   $('.select2_init').select2({
     'placeholder':'Chọn Vai Trò'
@@ -83,7 +83,7 @@
   </script>
 
   {{-- ckeditor --}}
-  <script type="text/javascript" src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('Backend/libs/ckeditor/ckeditor.js') }}"></script>
   <script>
     CKEDITOR.replace('ckeditor_content');
     CKEDITOR.replace('ckeditor_desc');
