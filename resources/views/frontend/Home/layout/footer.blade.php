@@ -56,7 +56,7 @@
                     <div class="col-md-8 mb-3">
                         <h5>Danh sách ngân hàng thanh toán online</h5>
                         <a href="" class="footer__link d-inline-block footer__link--pay disabled"><img
-                                src="./images/bank/banklist.jpg" alt=""></a>
+                                src="{{ ('Frontend/images/bank/banklist.jpg') }}" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -87,10 +87,10 @@
                         Tầng 11 Minh Long Tower, số 17 Bà Huyện Thanh Quan, Phường 6, Quận 3, TP. Hồ Chí Minh
                     </div>
                     <div class="col-md-2 pt-3 text-left">
-                        <a href="" class="footer__link footer__link--pay "><img src="./images/bank/da-dang-ky.png"
+                        <a href="" class="footer__link footer__link--pay "><img src="{{ asset ('Frontend/images/bank/da-dang-ky.png') }}"
                                 alt=""></a>
                         <a href="" class="footer__link footer__link--pay disabled"><img
-                                src="./images/bank/dmca-badge-w100-2x1-02.png" alt=""></a>
+                                src="{{ asset ('Frontend/images/bank/dmca-badge-w100-2x1-02.png') }}" alt=""></a>
                     </div>
                 </div>
             </div>

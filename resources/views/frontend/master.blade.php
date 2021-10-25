@@ -13,16 +13,17 @@
 
 <body>
     @include('frontend.Home.layout.header')
-     @include('frontend.home')
-    <div class="container-fluid mb-4">
+    
+    
         @yield('content')
-    </div>
+   
     @include('frontend.Home.layout.footer') 
     <script type="text/javascript" src="{{ asset ('Frontend/js/jquery-3.5.0.min.js') }} "></script>
     <script type="text/javascript" src="{{ asset ('Frontend/libs/owlcarousel/owl.carousel.min.js')}} "></script>
-    <script type="text/javascript" src="{{ asset ('Frontedn/libs/bootstrap/js/bootstrap.bundle.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('Frontend/libs/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset ('Frontend/js/countdown.js ') }}"></script>
     <script src="{{ asset ('Frontend/js/index.js') }} "></script>
+
 
 
 </body>

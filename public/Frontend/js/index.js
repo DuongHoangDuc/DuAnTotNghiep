@@ -183,4 +183,12 @@ $(function() {
 // cart
 // dropdown
 
+// document.getElementsByClassName("nav-item").onclick = function () {
+//   document.getElementsByClassName("nav-item").style.display = 'none';
+// };
+
+// document.getElementsByClassName("nav-item").onclick = function () {
+//   document.getElementsByClassName("nav-item").style.display = 'block';
+// };
+
 })

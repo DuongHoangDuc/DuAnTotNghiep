@@ -181,6 +181,7 @@ header {
 .header__search {
   flex-grow: 1;
   position: relative;
+  top:10;
 }
 
 .header__search--form {
@@ -213,7 +214,7 @@ header {
   top: 50%;
   transform: translateY(-50%);
   right: 1px;
-  padding: 4px 8px;
+  padding: 8px 8px;
   background-color: var(--blue);
   border-radius: inherit;
   -webkit-border-radius: inherit;

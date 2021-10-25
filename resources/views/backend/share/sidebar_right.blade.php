@@ -12,7 +12,7 @@
               <strong>Tùy chỉnh </strong> bảng màu tổng thể, bố cục, v.v.
           </div>
           <div class="mb-2">
-              <img src="{{ asset('images/layouts/light.png') }}" class="img-fluid img-thumbnail" alt="">
+              <img src="{{ asset('Backend/images/layouts/light.png') }}" class="img-fluid img-thumbnail" alt="">
           </div>
           <div class="custom-control custom-switch mb-3">
               <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
@@ -20,7 +20,7 @@
           </div>
   
           <div class="mb-2">
-              <img src="{{ asset('images/layouts/dark.png') }}" class="img-fluid img-thumbnail" alt="">
+              <img src="{{ asset('Backend/images/layouts/dark.png') }}" class="img-fluid img-thumbnail" alt="">
           </div>
           <div class="custom-control custom-switch mb-3">
               <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" 
@@ -29,7 +29,7 @@
           </div>
   
           <div class="mb-2">
-              <img src="{{ asset('images/layouts/rtl.png') }}" class="img-fluid img-thumbnail" alt="">
+              <img src="{{ asset('Backend/images/layouts/rtl.png') }}" class="img-fluid img-thumbnail" alt="">
           </div>
           <div class="custom-control custom-switch mb-3">
               <input type="checkbox" class="custom-control-input theme-choice" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
@@ -37,7 +37,7 @@
           </div>
 
           <div class="mb-2">
-              <img src="{{ asset('images/layouts/dark-rtl.png') }}" class="img-fluid img-thumbnail" alt="">
+              <img src="{{ asset('Backend/images/layouts/dark-rtl.png') }}" class="img-fluid img-thumbnail" alt="">
           </div>
           <div class="custom-control custom-switch mb-5">
               <input type="checkbox" class="custom-control-input theme-choice" id="dark-rtl-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" 

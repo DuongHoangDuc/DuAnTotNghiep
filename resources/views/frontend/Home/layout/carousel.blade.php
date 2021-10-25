@@ -60,71 +60,14 @@
 
       <div class="nav-aside d-flex justify-content-between align-items-start pt-3">
           <ul class="nav flex-column align-items-center bg-white nav__category">
+        @foreach ($category_all as $value )
               <li class="nav-item">
                   <a class="nav-link active" href="category_page.html">
-                      <i class="fal fa-dryer-alt"></i> Điện máy - Điện da dụng
+                      <i class="fal fa-laptop"></i> {{ $value->category_name }}
                   </a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Laptop & Macboo
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Tivi - Màn hình TV
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Điện thoại & Thiết bị thông minh
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> PC - Máy tính đồng bộ
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Màn hình máy tính
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Hi-End Gaming
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Phụ kiện & Thiết bị ngoại vi
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Thiết bị âm thanh
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Máy ảnh - Máy quay phim
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Thiết bị văn phòng
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Thiết bị mạng - An ninh
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="category_page.html">
-                      <i class="fal fa-laptop"></i> Giải pháp doanh nghiệp
-                  </a>
-              </li>
+        @endforeach
+            
           </ul>
           <!-- End .menu -->
 
@@ -213,13 +156,13 @@
                   <a class="nav-link" id="js-nav-contact2-tab"
                       data-bg="{{ asset('Frontend/images/tabs-category/tab4.png') }}" data-toggle="tab"
                       href="#js-nav-contact2" role="tab" aria-controls="js-nav-contact2" aria-selected="false">
-                      <h4 class="title-tab">Orico</h4>
+                      <h4 class="title-tab">Điện thoại- Thiết Bị Thông minh</h4>
                       <div class="sub-title">Ưu đãi đến 48%</div>
                   </a>
                   <a class="nav-link" id="js-nav-contact3-tab"
                       data-bg="{{ asset('Frontend/images/tabs-category/tab5.png') }}" data-toggle="tab"
                       href="#js-nav-contact3" role="tab" aria-controls="js-nav-contact3" aria-selected="false">
-                      <h4 class="title-tab">Phụ kiện App</h4>
+                      <h4 class="title-tab">PC</h4>
                       <div class="sub-title">Ưu đãi đến 45%</div>
                   </a>
               </div>
@@ -227,6 +170,7 @@
           <!-- end .rounded-top -->
 
           <div class="tab-content p-3 pt-5" id="nav-tabContent">
+        {{--sản phẩm theo Laptop  --}}
               <div class="tab-pane fade show active" id="js-nav-home" role="tabpanel"
                   aria-labelledby="js-nav-home-tab">
                   <div class="d-flex flex-nowrap align-items-center align-content-center">
@@ -243,560 +187,155 @@
                           </div>
                       </div>
                       <!-- end .special__offer -->
+
                       <div class="product__carousel owl-carousel owl-theme js-product-carousel">
+                          {{-- Item sản phẩm Laptop --}}
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="{{ asset('Frontend/images/product/unnamed (1).webp') }}"
-                                                  alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="{{ asset('Frontend/images/product/unnamed (1).webp') }}"
-                                                  alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          đ</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          đ</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="{{ asset('Frontend/images/product/unnamed (1).webp') }}"
-                                                  alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="{{ asset('Frontend/images/product/unnamed (1).webp') }}"
-                                                  alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
+
+
                               </div>
                           </div>
                           <!-- end .item -->
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product1 as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span class="">
+                                                          {{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
+
                               </div>
                           </div>
                           <!-- end .item -->
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product2 as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
                               </div>
                           </div>
+                          {{-- Item sản phẩm Laptop --}}
                           <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
+
                           <!-- end .item -->
                       </div>
                       <!-- end .product_carousel -->
                       <a href="" class="see-more">Xem thêm <i class="fal fa-angle-right"></i></a>
                   </div>
               </div>
+        {{--sản phẩm theo Laptop  --}}
+        {{--sản phẩm theo Điện gia dụng  --}}
               <div class="tab-pane fade" id="js-nav-profile" role="tabpanel" aria-labelledby="js-nav-profile-tab">
                   <div class="d-flex flex-nowrap align-items-center align-content-center">
                       <div class="special__offer">
@@ -812,414 +351,95 @@
                       <!-- end .special__offer -->
 
                       <div class="product__carousel owl-carousel owl-theme js-product-carousel">
+                          {{-- Item sản phẩm Điện gia Dụng --}}
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product_DGD as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
                               </div>
                           </div>
                           <!-- end .item -->
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product_DGD1 as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
                               </div>
                           </div>
-                          <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (4).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                          <!-- end .item -->
+                          {{-- Item sản phẩm Điện gia Dụng --}}
                       </div>
                       <!-- end .product_carousel -->
                       <a href="" class="see-more">Xem thêm <i class="fal fa-angle-right"></i></a>
@@ -1227,6 +447,8 @@
                   </div>
 
               </div>
+        {{--sản phẩm theo Điện gia dụng  --}}
+        {{--sản phẩm theo TV --}}      
               <div class="tab-pane fade" id="js-nav-contact" role="tabpanel" aria-labelledby="js-nav-contact-tab">
                   <div class="d-flex flex-nowrap align-items-center align-content-center">
                       <div class="special__offer">
@@ -1247,411 +469,50 @@
                       <div class="product__carousel owl-carousel owl-theme js-product-carousel">
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  {{-- Item sản phẩm TV --}}
+                                  @foreach ($product_TV as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
                               </div>
                           </div>
                           <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                          <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (2).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
+
                           <!-- end .item -->
                       </div>
                       <!-- end .product_carousel -->
@@ -1659,6 +520,8 @@
 
                   </div>
               </div>
+        {{--sản phẩm theo TV --}} 
+        {{--sản phẩm theo Điện thoại --}}                 
               <div class="tab-pane fade" id="js-nav-contact2" role="tabpanel" aria-labelledby="js-nav-contact-tab2">
                   <div class="d-flex flex-nowrap align-items-center align-content-center">
                       <div class="special__offer">
@@ -1677,420 +540,107 @@
                       <!-- end .special__offer -->
 
                       <div class="product__carousel owl-carousel owl-theme js-product-carousel">
+                          {{-- Item sản phẩm Điện thoại --}}
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                  @foreach ($product_phone as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
+
+
                               </div>
                           </div>
                           <!-- end .item -->
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                   @foreach ($product_phone1 as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                                  @endforeach
+
                               </div>
                           </div>
-                          <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (3).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                          <!-- end .item -->
+                          {{-- Item sản phẩm Điện thoại --}}
+                      
                       </div>
                       <!-- end .product_carousel -->
                       <a href="" class="see-more">Xem thêm <i class="fal fa-angle-right"></i></a>
 
                   </div>
               </div>
+        {{--sản phẩm theo Điện thoại --}}
+        {{--sản phẩm theo PC --}}        
               <div class="tab-pane fade" id="js-nav-contact3" role="tabpanel" aria-labelledby="js-nav-contact-tab3">
                   <div class="d-flex flex-nowrap align-items-center align-content-center">
                       <div class="special__offer">
@@ -2107,422 +657,61 @@
                           </div>
                       </div>
                       <!-- end .special__offer -->
-
                       <div class="product__carousel owl-carousel owl-theme js-product-carousel">
+                      {{--  Item sản phẩm PC --}}
                           <div class="item">
                               <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                            @foreach ($product_pc as $value)
+                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                          <div class="product__image">
+                                              <figure class="box__image ">
+                                                  <img class="lazyload zoom banner__image "
+                                                      data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}"
+                                                      alt=" " loading="lazy">
+                                              </figure>
+                                              <div class="boxed__save shadow-sm rounded p-2">
+                                                  <div class="text__save"> TIẾT KIỆM </div>
+                                                  <div class="price_save">1.600.000 ₫</div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
+                                          <div class="product__content d-flex flex-column justify-content-between">
+                                              <div class="product__top">
+                                                  <div class="product__name">
+                                                      {{ $value->product_name }}
+                                                  </div>
+                                                  <div class="product__number">
+                                                      Còn 3 sản phẩm
+                                                  </div>
                                               </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
+                                              <div class="product__bottom">
+                                                  <div class="product__price new__price">
+                                                      <strong
+                                                          class="">{{ number_format($value->product_sales, 0, ',', '.') }}
+                                                          ₫</strong>
+                                                      <i>Freeship</i>
+                                                  </div>
+                                                  <div class="product__price old__price">
+                                                      <span
+                                                          class="">{{ number_format($value->product_price, 0, ',', '.') }}
+                                                          ₫</span>
+                                                      <i class="discount">-7.28%</i>
+                                                  </div>
                                               </div>
                                           </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
+                                      </a>
+                            @endforeach
                               </div>
                           </div>
                           <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                          <!-- end .item -->
-                          <div class="item">
-                              <div class="products">
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <div class="product__number">
-                                                  Còn 3 sản phẩm
-                                              </div>
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <a class="product rounded p-3 d-flex flex-column" href="">
-                                      <div class="product__image">
-                                          <figure class="box__image ">
-                                              <img class="lazyload zoom banner__image "
-                                                  data-src="./images/product/unnamed (1).webp" alt=" " loading="lazy">
-                                          </figure>
-                                          <div class="boxed__save shadow-sm rounded p-2">
-                                              <div class="text__save"> TIẾT KIỆM </div>
-                                              <div class="price_save">1.600.000 ₫</div>
-                                          </div>
-                                      </div>
-                                      <div class="product__content d-flex flex-column justify-content-between">
-                                          <div class="product__top">
-                                              <div class="product__name">
-                                                  Laptop ACER Swift 3 SF313-53-503A NX.A4JSV.002 ( 13.5" Quad HD
-                                                  (2K)/Intel Core i5-1135G7/8GB/512GB SSD/Windows 10
-                                              </div>
-                                              <!-- <div class="product__number">
-                          Còn 3 sản phẩm
-                        </div> -->
-                                          </div>
-                                          <div class="product__bottom">
-                                              <div class="product__price new__price">
-                                                  <strong class="">20.390.000 ₫</strong>
-                                                  <i>Freeship</i>
-                                              </div>
-                                              <div class="product__price old__price">
-                                                  <span class="">21.990.000 ₫</span>
-                                                  <i class="discount">-7.28%</i>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                          <!-- end .item -->
+                        
+                        {{--  Item sản phẩm PC --}}
                       </div>
                       <!-- end .product_carousel -->
                       <a href="" class="see-more">Xem thêm <i class="fal fa-angle-right"></i></a>
 
                   </div>
               </div>
+         {{--sản phẩm theo PC --}}       
           </div>
       </div>
       <!-- end .nav__tab -->

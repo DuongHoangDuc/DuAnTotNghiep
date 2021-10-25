@@ -74,77 +74,19 @@
          </div>
          <!-- end .header__logo -->
 
-         <div class="header__category pl-3" id="js-header-category">
+         <div class="header__category pl-3" id="js-header-category" >
              <button class="btn btn-outline-light"><i class="far fa-bars"></i> Danh mục sản phẩm</button>
 
-             <div class="nav-scroll" id="js-nav-scroll" style="display:none">
+             <div class="nav-scroll" id="js-nav-scroll " style="display:none">
                  <!-- <div class="container"> -->
                  <ul class="nav flex-column align-items-center bg-white">
-                     <li class="nav-item">
+                 {{-- @foreach ($category_all as $value )                        
+                     <li class="nav-item ">
                          <a class="nav-link active" href="category_page.html">
-                             <i class="fal fa-dryer-alt"></i> Điện máy - Điện da dụng
+                            <i class="fal fa-laptop"></i> {{ $value->category_name }}
                          </a>
                      </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Laptop & Macboo
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Tivi - Màn hình TV
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Điện thoại & Thiết bị thông minh
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> PC - Máy tính đồng bộ
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Màn hình máy tính
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Hi-End Gaming
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Phụ kiện & Thiết bị ngoại vi
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Thiết bị âm thanh
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Máy ảnh - Máy quay phim
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Thiết bị văn phòng
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Thiết bị mạng - An ninh
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="category_page.html">
-                             <i class="fal fa-laptop"></i> Giải pháp doanh nghiệp
-                         </a>
-                     </li>
+                @endforeach --}}
                  </ul>
                  <!-- </div> -->
              </div>

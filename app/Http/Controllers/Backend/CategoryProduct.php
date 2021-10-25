@@ -15,20 +15,14 @@ class CategoryProduct extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function AuthLogin(){
-        $Auth = Auth::id();
-        if($Auth){
-            return redirect()->to('/admin/dashboard');
-        }else{
-            return redirect()->to('/admin');
-        }
-    }
+    
     public function index()
     {
-        $this->Authlogin();
+        
         $category =  ProductCategory::all();
         $manager_category = view('backend.Category-Product.index')->with('category',$category);
         return view('backend.master_layout')->with('backend.Category-Product.index',$manager_category);
+       
         
     }
 
@@ -106,7 +100,7 @@ class CategoryProduct extends Controller
         $category =  ProductCategory::find($id);
         $category->category_name = $data['category_name'];
         $category->category_slug = $data['category_slug'];
-        $category->category_status = '0';
+        // $category->category_status = '0';
         $get_images = $request->file('category_images');
 
         if($request->has('category_images')){
