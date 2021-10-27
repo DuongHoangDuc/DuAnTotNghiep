@@ -58,6 +58,6 @@ class AdminController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return redirect()->to('/admin');
+        return redirect()->to('/admin');//ddawng nhaajp laji a xem thuwr
     }
 }

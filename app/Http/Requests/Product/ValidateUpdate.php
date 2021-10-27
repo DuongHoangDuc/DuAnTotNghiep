@@ -24,13 +24,13 @@ class ValidateUpdate extends FormRequest
     public function rules()
     {
         return [
-            'product_name' => 'required|max:225',
+            'product_name' => 'required',
             'product_price' => 'required|max:225',
             'category_id' => 'required|max:225',
             'brand_id' => 'required|max:225',
-            'product_content' => 'required|max:225',
+            'product_content' => 'required',
             'product_sales' => 'required|max:225',
-            'product_desc' => 'required|max:225',
+            'product_desc' => 'required',
             'product_slug' => 'required|max:225'
             
         ];

@@ -9,6 +9,7 @@ use App\Http\Requests\CategoryPost\ValidateCreate;
 use App\Http\Requests\CategoryPost\ValidateUpdate;
 class CategoryPost extends Controller
 {
+    //cho phan quyen dau e
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,7 @@ class CategoryPost extends Controller
     public function index()
     {
         $category = PostCategory::all();
-        return view('Backend.Category-post.category_post')->with(compact('category'));
+        return view('Backend.Category-post.index')->with(compact('category'));
     }
 
     /**

@@ -4,13 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NOOB Shop</title>
-  <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+  <link rel="shortcut icon" href="{{ asset('Backend/images/favicon.ico') }}">
 	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('libs/bootstrap/css/bootstrap.css') }}"> --}}
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('fonts/fontawesome-pro-5.14.0-web/css/all.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/bootstrap.css') }}"> 
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/app.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('Backend/fonts/fontawesome-pro-5.14.0-web/css/all.min.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/admin.css') }}">
 
 </head>
 <body class="authentication-bg bg-primary authentication-bg-pattern d-flex align-items-center pb-0 vh-100">
@@ -27,7 +27,7 @@
                 <div class="account-logo-box">
                   <div class="text-center">
                     <a href="index.html">
-                      <img src="{{ asset('images/logo-full.svg') }}" alt="" height="50">
+                      <img src="{{ asset('Backend/images/logo-full.svg') }}" alt="" height="50">
                     </a>
                   </div>
                   <h5 class="text-uppercase mb-1 mt-4">Đăng nhập</h5>

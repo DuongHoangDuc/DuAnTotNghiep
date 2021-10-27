@@ -17,8 +17,8 @@ class BrandProduct extends Controller
     public function index()
     {
         $brand =  Brand::all();
-        $manager_brand = view('backend.Brand.brand')->with('brand',$brand);
-        return view('backend.master_layout')->with('backend.Brand.brand',$manager_brand);
+        $manager_brand = view('backend.Brand.index')->with('brand',$brand);
+        return view('backend.master_layout')->with('backend.Brand.index',$manager_brand);
     }
 
     /**
