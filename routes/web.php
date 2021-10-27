@@ -1,17 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Client\HomeController;
-
-
 use App\Http\Controllers\Backend\BrandProduct;
+
+
 use App\Http\Controllers\Backend\CategoryPost;
+use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryProduct;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
@@ -68,7 +69,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
         Route::get('/{id}', [SliderController::class, 'show'])             ->name($controllerName.'.show')->whereNumber('id');
         Route::get('/{id}/edit', [SliderController::class, 'edit'])        ->name($controllerName.'.edit')->whereNumber('id');
     });
-
+ // ===============================gallery Ảnh =====================================
+    Route::prefix('gallery')->group(function () {
+        Route::get('/add/{id}',[GalleryController::class, 'index'])->name('gallery.index');
+        Route::get('/gallery-all',[GalleryController::class, 'gallery_all'])->name('gallery.gallery_all');
+        Route::post('/store/{id}',[GalleryController::class, 'store'])->name('gallery.store');
+       
+           
+    });
     // ===============================Category Product =====================================
     Route::prefix('category-product')->group(function () {
         Route::get('/',[CategoryProduct::class,'index'])->name('category.index')->middleware('can:category-product-list'); // da cai do phan quyen e lam a
@@ -159,7 +167,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
 
 
 
-Auth::routes();
 
 
 

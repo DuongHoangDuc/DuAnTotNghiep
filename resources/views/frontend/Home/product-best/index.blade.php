@@ -9,7 +9,7 @@
                  <div class="item">
                      <div class="products">
                     @foreach ($product_random as $value )
-                         <a class="product rounded p-3 d-flex flex-column" href="">
+                         <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                              <div class="product__image">
                                  <figure class="box__image ">
                                      <img class="lazyload zoom banner__image "
@@ -48,7 +48,7 @@
                  <div class="item">
                      <div class="products">
                     @foreach ($product_random as $value )
-                         <a class="product rounded p-3 d-flex flex-column" href="">
+                         <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                              <div class="product__image">
                                  <figure class="box__image ">
                                      <img class="lazyload zoom banner__image "
@@ -88,7 +88,7 @@
                  <div class="item">
                      <div class="products">
                     @foreach ($product_random as $value )
-                         <a class="product rounded p-3 d-flex flex-column" href="">
+                         <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                              <div class="product__image">
                                  <figure class="box__image ">
                                      <img class="lazyload zoom banner__image "
