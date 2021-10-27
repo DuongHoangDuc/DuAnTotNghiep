@@ -22,7 +22,7 @@
                             @foreach ($product_DGD as $value )
                             <div class="brand text-center">
 
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">
@@ -59,7 +59,7 @@
                         <div class="category__content d-flex flex-wrap align-content-between">
                         @foreach($product_phone as $value)
                             <div class="brand text-center">
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">
@@ -95,7 +95,7 @@
                         <div class="category__content d-flex flex-wrap align-content-between">
                         @foreach ($product as $value )
                             <div class="brand text-center">
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">
@@ -131,7 +131,7 @@
                         <div class="category__content d-flex flex-wrap align-content-between">
                         @foreach($product_pc as $value)
                             <div class="brand text-center">
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">
@@ -167,7 +167,7 @@
                         <div class="category__content d-flex flex-wrap align-content-between">
                         @foreach($product_TV as $value)
                             <div class="brand text-center">
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">
@@ -203,7 +203,7 @@
                         <div class="category__content d-flex flex-wrap align-content-between">
                         @foreach($product_photo as $value)
                             <div class="brand text-center">
-                                <a href="#" class="">
+                                <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
                                     <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
                                     <figure class="box__image">

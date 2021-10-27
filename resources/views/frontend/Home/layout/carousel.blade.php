@@ -62,7 +62,7 @@
           <ul class="nav flex-column align-items-center bg-white nav__category">
         @foreach ($category_all as $value )
               <li class="nav-item">
-                  <a class="nav-link active" href="category_page.html">
+                  <a class="nav-link active" href="">
                       <i class="fal fa-laptop"></i> {{ $value->category_name }}
                   </a>
               </li>
@@ -193,7 +193,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
 
                                           <div class="product__image">
                                               <figure class="box__image ">
@@ -240,7 +240,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product1 as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -285,7 +285,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product2 as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -355,7 +355,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product_DGD as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -399,7 +399,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product_DGD1 as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -471,7 +471,7 @@
                               <div class="products">
                                   {{-- Item sản phẩm TV --}}
                                   @foreach ($product_TV as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -544,7 +544,7 @@
                           <div class="item">
                               <div class="products">
                                   @foreach ($product_phone as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -590,7 +590,7 @@
                           <div class="item">
                               <div class="products">
                                    @foreach ($product_phone1 as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
@@ -662,7 +662,7 @@
                           <div class="item">
                               <div class="products">
                             @foreach ($product_pc as $value)
-                                      <a class="product rounded p-3 d-flex flex-column" href="">
+                                      <a class="product rounded p-3 d-flex flex-column" href="{{ URL::to('/product-detail/'.$value->product_id) }}">
                                           <div class="product__image">
                                               <figure class="box__image ">
                                                   <img class="lazyload zoom banner__image "
