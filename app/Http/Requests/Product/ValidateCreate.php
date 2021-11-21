@@ -32,7 +32,9 @@ class ValidateCreate extends FormRequest
             'product_content' => 'required',
             'product_sales' => 'required|max:225',
             'product_desc' => 'required',
+            'product_event' => 'required',
             'product_slug' => 'required|max:225'
+            
             
         ];
     }
@@ -46,7 +48,9 @@ class ValidateCreate extends FormRequest
             'product_sales.required' => ' Giá Khuyến Mãi không được để trống',
             'product_content.required' => ' Mô Tả Dài không được để trống',
             'product_desc.required' => 'Mô Tả Ngắn không được để trống',
+            'product_event.required' => 'Sự kiện k đc để trống',
             'product_slug.required' => 'Đường Dẫn không được để trống'
+            
             
         ];
     }

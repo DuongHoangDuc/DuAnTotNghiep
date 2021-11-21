@@ -24,7 +24,7 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="">
+                    <a href="{{ url('/admin/slider') }}">
                         <i class="fal fa-images"></i>
                         <span> Slider </span>
                         {{-- <span class="menu-arrow"></span> --}}

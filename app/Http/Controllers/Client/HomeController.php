@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\ProductCategory;
 use App\Models\Backend\Product;
+use App\Models\Backend\Gallery;
+use App\Models\Backend\Slider;
 use DB;
 class HomeController extends Controller
 {
@@ -41,6 +43,9 @@ class HomeController extends Controller
         // tất cả sản phẩm
         $product_all        = Product::orderby('product_id','desc')->paginate(20);
         $product_random     = Product::orderByRaw('RAND()')->take(10)->limit(5)->get();
+        
+
+        $Slider            = Slider::orderby('Slider_id','asc')->get();
         $data = [
             'product'          => $product,
             'product1'         => $product1,
@@ -54,14 +59,15 @@ class HomeController extends Controller
             'product_pc1'      => $product_pc1,
             'product_photo'    => $product_photo,
             'product_all'      => $product_all,
-            'product_random'  => $product_random,
+            'product_random'   => $product_random,
             'category'         => $category,
             'category_laptop'  => $category_laptop,
             'category_TV'      => $category_TV,
             'category_phone'   => $category_phone,
             'category_pc'      => $category_pc,
             'category_photo'   => $category_photo,
-            'category_all'   => $category_all
+            'category_all'     => $category_all,
+            'Slider'          => $Slider
             
             
 
@@ -78,12 +84,34 @@ class HomeController extends Controller
     //     return view('frontend.index', $data);
     // }
     public function detail($id){
+
         $product = Product::join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
         ->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('product_id',$id)->get();
 
+        
+
+        $gallery = Gallery::orderby('gallery_id','desc')->where('product_id',$id)->get();
+        
+        foreach($product as $key => $value){
+            $brand_id = $value->brand_id;
+        }
+
+        $related = product::join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')
+        ->where('tbl_brand.brand_id',$brand_id)->orderByRaw('RAND()')->limit(5)->get();
+
+        $related1 = product::join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')
+        ->where('tbl_brand.brand_id','>',$brand_id)
+        ->where('tbl_brand.brand_id',$brand_id)->orderByRaw('RAND()')->limit(5)->get();
+
+        
         $data = [
-            'product' => $product
+            'product' => $product,
+            'gallery' => $gallery,
+            'related' => $related,
+            'related1' => $related1
+            
         ];
+        // dd($product_brand);
         return view('frontend.detail',$data);
     }
     

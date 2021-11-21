@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\BrandProduct;
-
-
 use App\Http\Controllers\Backend\CategoryPost;
-use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
@@ -16,6 +13,7 @@ use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
+use App\Http\Controllers\Client\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,27 +51,26 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
     // =============================== dashboard ===============================
     $prefix         = '';
     $controllerName = 'dashboard';
-    // Route::group(['prefix' => $prefix], function () use($controllerName) {
-    //     Route::get('/admin/dashboard', [DashboardController::class, 'index'])              ->name($controllerName.'.index');
-    // });
-    //=============================== slider ===============================
-    $prefix         = 'slider';
-    $controllerName = 'slider';
-    Route::group(['prefix' => $prefix], function () use($controllerName) {
-        Route::get('/', [SliderController::class, 'index'])                ->name($controllerName.'.index');
-        Route::get('/{status}/{id}',[SliderController::class, 'status'])   ->name($controllerName.'.status')->whereNumber('id');
-        Route::get('/create', [SliderController::class, 'create'])         ->name($controllerName.'.create');
-        Route::post('/', [SliderController::class, 'store'])               ->name($controllerName.'.store');
-        Route::put('/{id}', [SliderController::class, 'update'])           ->name($controllerName.'.update')->whereNumber('id');
-        Route::delete('/{id}', [SliderController::class, 'destroy'])       ->name($controllerName.'.destroy')->whereNumber('id');
-        Route::get('/{id}', [SliderController::class, 'show'])             ->name($controllerName.'.show')->whereNumber('id');
-        Route::get('/{id}/edit', [SliderController::class, 'edit'])        ->name($controllerName.'.edit')->whereNumber('id');
+
+    // Khuyến cáo : Nghe thằng tiến là bán lúa giống ăn
+    // ===============================slider =====================================
+    Route::prefix('/slider')->group(function () {
+        Route::get('/',[SliderController::class, 'index'])->name('slider.index');
+        Route::get('/add-slider',[SliderController::class, 'create'])->name('slider.create');
+        Route::post('/store-slider',[SliderController::class, 'store'])->name('slider.store');
+        Route::get('/delete-slider/{id}',[SliderController::class, 'delete'])->name('slider.delete');
+        Route::get('/edit-slider/{id}',[SliderController::class, 'edit'])->name('slider.edit');
+        Route::post('/update-slider/{id}',[SliderController::class, 'update'])->name('slider.update');
+        
+      
     });
+    // ===============================slider=====================================
  // ===============================gallery Ảnh =====================================
     Route::prefix('gallery')->group(function () {
         Route::get('/add/{id}',[GalleryController::class, 'index'])->name('gallery.index');
         Route::get('/gallery-all',[GalleryController::class, 'gallery_all'])->name('gallery.gallery_all');
         Route::post('/store/{id}',[GalleryController::class, 'store'])->name('gallery.store');
+        Route::get('/delete/{id}',[GalleryController::class, 'delete'])->name('gallery.delete');
        
            
     });
@@ -101,6 +98,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
     });
     // ===============================brand Product =====================================
     // ===================================Product =====================================
+    route::prefix('detail')->group(function(){
+        Route::get('/{id}',[ProductController::class,'product_detail'])->name('detail.product_detail');
+        Route::post('/add-detail',[ProductController::class, 'add_detail'])->name('detail.create');
+     
+
+    });
     route::prefix('product')->group(function(){
         Route::get('/',[ProductController::class,'index'])->name('product.index')->middleware('can:product-list'); 
         Route::get('create-product',[ProductController::class, 'create'])->name('product.create')->middleware('can:product-add');

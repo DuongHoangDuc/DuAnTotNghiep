@@ -40,8 +40,8 @@ class GalleryController extends Controller
                 $output.='  <tr>
                                 <th scope="row">'.$i.'</th>
                                 <td>'.$value->gallery_name.'</td>
-                                <td><img src = "'.url('Frontend/images/product/'.$value->gallery_image).'"></td>
-                                <td><button data-gallery_id="'.$value->gallery_id.'" class = "btn btn-xs btn-danger delete-gallery" width ="80px" > Xóa</button></td>
+                                <td><img src = "'.url('Backend/uploads/products/'.$value->gallery_image).'"></td>
+                                <td><a class = "btn btn-xs btn-danger delete-gallery" href = "'.url('/admin/gallery/delete/'.$value->gallery_id) .'">xóa</a></td>
                             </tr>
                         ';
             }
@@ -54,31 +54,41 @@ class GalleryController extends Controller
 
             ';
         }
-        // echo $output;
+        //  <td><button data-gallery_id="'.$value->gallery_id.'" class = "btn btn-xs btn-danger delete-gallery" width ="80px" > Xóa</button></td>
         return response()->json($output);
     }
     public function store(Request $request ,$id){
-        $get_images = $request->file('file');
-       
-        if($get_images){
-            foreach($get_images as $image){
-              
-                $get_name_images = $image->getClientOriginalName();// lấy tên ảnh
-                $name_image      = current(explode('.',$get_name_images));
-                $new_image       = $name_image.rand(0,99).'.'.$image->getClientOriginalExtension();
-                $image->move('Backend/uploads/products',$new_image);
-                $product->product_images = $new_image;
-                $gallery = new Gallery();
-                $gallery->gallery_name = $new_image;
-                $gallery->gallery_image = $new_image;
-                $gallery->product_id = $id;
-                $gallery->save();
+        
+        // dd($request->file('file'));
+  
+        if($request->hasfile('files')){
+            $images = $request->file('files');
+            foreach($images as $image){
 
-                
+                $name = $image->getClientOriginalName();
+ 
+                $image->move(public_path('Backend/uploads/products'), $name);
+                Gallery::create([
+                     'gallery_name' => 'Product',
+                     'gallery_image' => $name,
+                     'product_id' => $id
+                ]);
+ 
             }
-           ;
-            return redirect()->back();
-            // dd($get_images);
         }
+
+       
+           
+
+
+       return redirect()->back();
+       
+    }
+    public function delete(Request $request,$id){
+        $gallery = Gallery::find($id);
+        $image = $gallery->gallery_image;
+        unlink('Backend/uploads/products/'.$image);
+        $gallery->delete();
+        return redirect()->back();
     }
 }

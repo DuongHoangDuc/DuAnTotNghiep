@@ -12,6 +12,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('Backend/css/admin.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('Backend/dist/css/select2.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('Backend/DataTables/datatables.min.css') }}">
+  
+  
+
+  
 </head>
 <body>
   <!-- Begin page -->
@@ -70,9 +75,9 @@
   <!-- App js -->
   <script src="{{ asset('Backend/js/app.min.js') }}"></script>
   <script src="{{ asset('Backend/js/admin.js') }}"></script>
-
+ <script src="{{ asset('Backend/js/admin.js') }}"></script>
   <!-- jQuery -->
-  <script type="text/javascript" src="{{ asset('Backend/js/jquery-3.5.0.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('Backend/DataTables/datatables.min.js') }}"></script>
   {{-- ckedit --}}
   {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.5.0.min.js') }}"></script> --}}
 <script src="{{ asset('Backend/dist/js/select2.min.js') }}"></script>

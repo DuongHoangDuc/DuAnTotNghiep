@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\Brand;
 use App\Models\Backend\Product;
+use App\Models\Backend\information;
 use App\Models\Backend\ProductCategory;
 use App\Http\Requests\Product\ValidateCreate;
 use App\Http\Requests\Product\ValidateUpdate;
@@ -18,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::orderby('product_id','desc')->paginate(10);
+        $product = Product::orderby('product_id','desc')->get();
         return view('Backend.Product.index')->with(compact('product'));
         
     }
@@ -53,6 +54,7 @@ class ProductController extends Controller
         $product->product_content = $data['product_content'];
         $product->product_desc = $data['product_desc'];
         $product->product_slug = $data['product_slug'];
+        $product->product_event = $data['product_event'];
         $product->product_status = '0';
         $product->product_hot = '0';
 
@@ -115,6 +117,7 @@ class ProductController extends Controller
         $product->product_content = $data['product_content'];
         $product->product_desc = $data['product_desc'];
         $product->product_slug = $data['product_slug'];
+        $product->product_event = $data['product_event'];
         $product->product_status = '0';
         $product->product_hot = '0';
 
@@ -149,5 +152,52 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         return Redirect('/admin/product');
+    }
+
+    public function product_detail(Request $request,$id){
+        $product = Product::join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
+        ->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('product_id',$id)->get();
+
+        
+
+        $id = $id;
+        $data = [
+            'product' => $product,
+            'id' => $id
+           
+        ];
+        // return redirect()->back();
+        return view('Backend.product-detail.index',$data);
+    }
+
+    public function add_detail(Request $request,$id){
+       
+        
+        information::create([
+            'product_id'            =>$id,
+            'warranty'              => $request->warranty,
+            'series'                => $request->series,
+            'part_number'           => $request->part_number,
+            'generation'            => $request->generation,
+            'cpu'                   => $request->cpu,
+            'graphics'              => $request->graphics,
+            'ram'                   => $request->ram,
+            'screen'                => $request->screen,
+            'archive'               => $request->archive,
+            'maximum_archive'       => $request->maximum_archive,
+            'slot_type'             => $request->slot_type,
+            'screen_output'         => $request->screen_output,
+            'connecting'            => $request->connecting,
+            'connection_not_wire'   => $request->connection_not_wire,
+            'keyboard'              => $request->keyboard,
+            'system'                => $request->system,
+            'size'                  => $request->size,
+            'pin'                   => $request->pin,
+            'weight'                => $request->weight,
+            'led'                   => $request->led
+
+
+        ]);
+        return redirect()->back();
     }
 }

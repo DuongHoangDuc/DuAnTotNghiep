@@ -6,20 +6,14 @@
         <div class="card-box">
 
             <h4 class="header-title mb-4">Thư Viện Ảnh</h4>
-            <form action="{{ URL::To('/admin/gallery/store/'.$product_id) }}" method="post"          
-                enctype="multipart/form-data">
+            <form action="{{ URL::to('/admin/gallery/store/'.$product_id) }}" method="post"          
+               enctype="multipart/form-data" >
                  @csrf
                 <div class="col-md-6" id="add-image-file">
                     <div class="mb-3">
                     
                         <label class="title_product" for="">Hình ảnh File</label>
-                        <div class="custom-file">
-                            <input type="file" name="file[]" id = "file" class="custom-file-input" accept="image/*"
-                                 id="images" multiple >
-                                 <span id  ="error_gallery"></span>
-                            <label class="custom-file-label" for="images">Chọn ảnh</label>
-                        </div>
-
+                        <input type="file" name="files[]" multiple >
                     </div>
                 </div>
                 <div class="col-md-12">

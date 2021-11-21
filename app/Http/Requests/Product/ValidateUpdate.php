@@ -31,7 +31,9 @@ class ValidateUpdate extends FormRequest
             'product_content' => 'required',
             'product_sales' => 'required|max:225',
             'product_desc' => 'required',
-            'product_slug' => 'required|max:225'
+            'product_slug' => 'required|max:225',
+            'product_event' => 'required|max:225'
+           
             
         ];
     }
@@ -44,7 +46,9 @@ class ValidateUpdate extends FormRequest
             'product_sales.required' => ' Giá Khuyến Mãi không được để trống',
             'product_content.required' => ' Mô Tả Dài không được để trống',
             'product_desc.required' => 'Mô Tả Ngắn không được để trống',
-            'product_slug.required' => 'Đường Dẫn không được để trống'
+            'product_slug.required' => 'Đường Dẫn không được để trống',
+            'product_event.required' => 'Sự kiện không được để trống'
+           
             
         ];
     }

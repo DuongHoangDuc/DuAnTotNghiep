@@ -24,7 +24,7 @@
 
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset('Backend/uploads/products/' . $value->product_images) }}" alt=" " loading="lazy">
@@ -61,7 +61,7 @@
                             <div class="brand text-center">
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset ('Backend/uploads/products/'.$value->product_images) }}" alt=" " loading="lazy">
@@ -97,7 +97,7 @@
                             <div class="brand text-center">
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset ('Backend/uploads/products/' .$value->product_images) }}" alt=" " loading="lazy">
@@ -133,7 +133,7 @@
                             <div class="brand text-center">
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset ('Backend/uploads/products/'.$value->product_images) }}" alt=" " loading="lazy">
@@ -169,7 +169,7 @@
                             <div class="brand text-center">
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset ('Backend/uploads/products/'.$value->product_images) }}" alt=" " loading="lazy">
@@ -205,7 +205,7 @@
                             <div class="brand text-center">
                                 <a href="{{ URL::to('/product-detail/'.$value->product_id) }}" class="">
                                     <div class="brand__title font-weight-bold">{{ $value->brand_name }}</div>
-                                    <div class="brand__title brand__title--sub mb-2">Sức mạnh từ nhà rồng</div>
+                                    <div class="brand__title brand__title--sub mb-2">{{ $value->product_event }}</div>
                                     <figure class="box__image">
                                         <img class="lazyload zoom banner__image "
                                             data-src="{{ asset ('Backend/uploads/products/'.$value->product_images) }}" alt=" " loading="lazy">

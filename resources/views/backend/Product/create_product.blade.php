@@ -95,6 +95,15 @@
                                 @enderror
                                 </div>
                             </div>
+                             <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="title_product" for="">sự kiện </label>
+                                    <input type="text" name="product_event" class=" title_product form-control" id="">
+                                </div>
+                                @error('product_event')
+                                        <span class="erorr text-danger" > {{ $message }} </span>
+                                @enderror
+                            </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class=" title_product ">Mô tả dài</label>
@@ -115,7 +124,7 @@
                                         <span class="erorr text-danger" > {{ $message }} </span>
                                 @enderror
                             </div>
-
+                           
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="row">

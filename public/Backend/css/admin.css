@@ -1,153 +1,156 @@
 .table td,
 .table th {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .table td img {
-  width: 75px;
-  height: auto;
+    width: 75px;
+    height: auto;
 }
-
 
 /* Upload image */
 
 .form-upload {
-  background: #e9ecef;
-  border-top: 1px solid #ddd;
-  padding: 0.5rem 0.75rem;
+    background: #e9ecef;
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 0.75rem;
 }
 
 .form-upload .insert-attach {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .list-attach {
-  background-color: #f7f7f7;
-  border: 1px solid #DBDCDD;
-  /* min-height: 7.5rem; */
-  padding: 0.75rem;
+    background-color: #f7f7f7;
+    border: 1px solid #dbdcdd;
+    /* min-height: 7.5rem; */
+    padding: 0.75rem;
 }
 
 .list-attach .insert-attach {
-  width: 80px;
-  height: 90px;
-  border: 1px dashed #dbdcdd;
-  color: #ddd;
-  cursor: pointer;
-  text-align: center;
+    width: 80px;
+    height: 90px;
+    border: 1px dashed #dbdcdd;
+    color: #ddd;
+    cursor: pointer;
+    text-align: center;
 }
 
 .list-attach .insert-attach:hover {
-  background-color: #EDEDED;
+    background-color: #ededed;
 }
 
 .list-attach .insert-attach i {
-  margin-top: 50%;
-  transform: translateY(-50%);
+    margin-top: 50%;
+    transform: translateY(-50%);
 }
 
 ul.attach-view {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .img-carousel .attach-view li.img-box {
-  height: 60px;
+    height: 60px;
 }
 
 .img-carousel .attach-view .insert-attach {
-  height: 60px;
+    height: 60px;
 }
 
 .list-attach.img-carousel .insert-attach i {
-  margin-top: 25%;
-  transform: translateY(0%);
+    margin-top: 25%;
+    transform: translateY(0%);
 }
 
 label.insert-attach {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 ul.attach-view li.img-box {
-  max-width: 80px;
-  max-height: 90px;
-  display: block;
-  background-color: #fff;
-  padding: 5px 0;
-  position: relative;
+    max-width: 80px;
+    max-height: 90px;
+    display: block;
+    background-color: #fff;
+    padding: 5px 0;
+    position: relative;
 }
 
 li.img-box:hover img {
-  opacity: .7;
+    opacity: 0.7;
 }
 
 li.img-box .icon-close {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  z-index: 2;
-  cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    z-index: 2;
+    cursor: pointer;
 }
 
 li.img-box .icon-close i {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 li.img-box img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
-.table .thead-light th{
-  background-color: #4b6584;
-  color:white;
+.table .thead-light th {
+    background-color: #4b6584;
+    color: white;
 }
-.sorting{
-  text-align: center;
+.sorting {
+    text-align: center;
 }
-.text{
-  text-align: center;
+.text {
+    text-align: center;
 }
 .pip img {
-  width: 180px;
-  height: 180px;
+    width: 180px;
+    height: 180px;
 }
 
 .pip {
-  display: inline-block;
-  margin: 10px 10px 0 0;
+    display: inline-block;
+    margin: 10px 10px 0 0;
 }
 
 .remove {
-  display: block;
-  background: #444;
-  border: 1px solid black;
-  color: white;
-  text-align: center;
-  cursor: pointer;
+    display: block;
+    background: #444;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
 }
 
 .remove:hover {
-  background: white;
-  color: black;
+    background: white;
+    color: black;
 }
 
-.select2-selection__choice__display{
-  background-color: #0c525d !important;
+.select2-selection__choice__display {
+    background-color: #0c525d !important;
 }
-.card-header{
-  background-color: #4b6584;
-  color:white;
+.card-header {
+    background-color: #4b6584;
+    color: white;
 }
-.card-title{
- font-size: 14px;
+.card-title {
+    font-size: 14px;
 }
-input[type="checkbox"]{
-  transform: scale(1.2);
+input[type="checkbox"] {
+    transform: scale(1.2);
 }
-.font{
-  font-size: 18px;
-  color: black;
+.font {
+    font-size: 18px;
+    color: black;
+}
+
+#datatable_paginate {
+    /* margin-left: -15%; */
 }
