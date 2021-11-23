@@ -24,4 +24,14 @@ class ProductCategory extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * The brands that belong to the Brand
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function brands()
+    {
+        return $this->belongsToMany(Brand::class, 'brand_category','brand_brand_id','category_category_id');
+    }
 }

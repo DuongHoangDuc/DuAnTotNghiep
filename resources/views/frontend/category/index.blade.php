@@ -16,9 +16,11 @@
 																</div>
 														</div>
 														<div class="filter__option">
-																@foreach ($brand as $value)
-																		<span class="option__value js-filter " data-filters="brand" name="brand-filter"
-																				value="" data-name="">{{ $value->brand_name }}</span>
+
+																@foreach ($category as $value)
+																		<span class="option__value js-filter brand-filter" data-filters="brand"
+																				name="brand-filter" value="{{ $value->brand_id }}"
+																				data-name="">{{ $value->brand_name }}</span>
 																@endforeach
 														</div>
 														<div class="filter__more text-secondary">

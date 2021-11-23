@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#datatable").DataTable();
 });
 
-$(".js-filter").click(function () {
+$(".brand-filter").click(function () {
     var brand = [],
         temArray = [];
     $.each($("[data-filters='brand']:checked"), function () {
@@ -10,7 +10,7 @@ $(".js-filter").click(function () {
     });
     temArray.reverse();
     if (temArray.length !== 0) {
-        brand += "?brand" + temArray.toString();
+        brand += "?brand=" + temArray.toString();
     }
     window.location.href = brand;
 });
