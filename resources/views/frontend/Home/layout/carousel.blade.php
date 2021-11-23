@@ -16,7 +16,7 @@
 				<ul class="nav flex-column align-items-center bg-white nav__category">
 						@foreach ($category_all as $value)
 								<li class="nav-item">
-										<a class="nav-link active" href="">
+										<a class="nav-link active" href="{{ asset('/category/' . $value->category_id) }}">
 												<i class="fal fa-laptop"></i> {{ $value->category_name }}
 										</a>
 								</li>

@@ -14,4 +14,14 @@ class Brand extends Model
 
     protected $primaryKey = 'brand_id';
     protected $table = 'tbl_brand';
+
+    /**
+     * Get all of the products for the Brand
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

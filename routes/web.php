@@ -14,7 +14,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Client\HomeController;
-
+use App\Http\Controllers\Client\categoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,9 +31,10 @@ use App\Http\Controllers\Client\HomeController;
 // trang home
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/product-detail/{id}', [HomeController::class, 'detail'])->name('detail');
+Route::get('/product-detail/{id}', [HomeController::class, 'detail'])->name('detail.index');
 // Route::get('/search', [HomeController::class, 'indsearchex'])->name('home.index');
-
+// category 
+Route::get('/category/{id}', [categoryController::class, 'index'])->name('category.index');
 // Route::get('/category-home', [HomeController::class, 'getLogin'])->name('home.index');
 
 

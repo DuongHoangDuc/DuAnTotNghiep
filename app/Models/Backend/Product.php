@@ -16,4 +16,24 @@ class Product extends Model
 
     protected $primaryKey = 'product_id';
     protected $table = 'tbl_product';
+
+    /**
+     * Get the brand that owns the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
+
+    /**
+     * Get the category that owns the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

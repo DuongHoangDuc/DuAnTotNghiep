@@ -14,4 +14,14 @@ class ProductCategory extends Model
 
     protected $primaryKey = 'category_id';
     protected $table = 'tbl_category';
+
+    /**
+     * Get all of the products for the ProductCategory
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
