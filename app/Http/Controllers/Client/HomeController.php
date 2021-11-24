@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\ProductCategory;
 use App\Models\Backend\Product;
+use App\Models\Backend\Gallery;
 use DB;
 class HomeController extends Controller
 {
@@ -80,9 +81,16 @@ class HomeController extends Controller
     public function detail($id){
         $product = Product::join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
         ->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('product_id',$id)->get();
+        foreach($product as $value){
+          $brand_id = $value->brand_id;
+        }
+        $releted = product::join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
+        ->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('tbl_brand.brand_id',$brand_id)->limit(5)->get();
 
         $data = [
-            'product' => $product
+            'product' => $product,
+            'releted' => $releted,
+
         ];
         return view('frontend.detail',$data);
     }

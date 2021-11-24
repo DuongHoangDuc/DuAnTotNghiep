@@ -53,6 +53,7 @@ class ProductController extends Controller
         $product->product_content = $data['product_content'];
         $product->product_desc = $data['product_desc'];
         $product->product_slug = $data['product_slug'];
+        $product->product_event = $data['product_event'];
         $product->product_status = '0';
         $product->product_hot = '0';
 
@@ -115,6 +116,7 @@ class ProductController extends Controller
         $product->product_content = $data['product_content'];
         $product->product_desc = $data['product_desc'];
         $product->product_slug = $data['product_slug'];
+        $product->product_event = $data['product_event'];
         $product->product_status = '0';
         $product->product_hot = '0';
 

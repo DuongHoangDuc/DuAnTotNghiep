@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'],function(){
         Route::get('/add/{id}',[GalleryController::class, 'index'])->name('gallery.index');
         Route::get('/gallery-all',[GalleryController::class, 'gallery_all'])->name('gallery.gallery_all');
         Route::post('/store/{id}',[GalleryController::class, 'store'])->name('gallery.store');
+        Route::get('/delete-gallery/{id}',[GalleryController::class, 'delete'])->name('gallery.delete');
        
            
     });
